@@ -1,0 +1,49 @@
+SELECT * FROM EmployeeDemographics
+SELECT * FROM EmployeeSalary
+
+/*Distinct to get unique values*/
+SELECT DISTINCT(Salary) FROM EmployeeSalary
+
+/*To name the column name as something*/
+SELECT COUNT(LastName) AS LastNameCount
+FROM EmployeeDemographics
+
+/*To view maximum, minimum and average salary from a table*/
+SELECT MAX(Salary) AS MAXI
+FROM EmployeeSalary
+
+SELECT MIN(Salary) AS MINI
+FROM EmployeeSalary
+
+SELECT AVG(Salary) AS Average
+FROM EmployeeSalary
+
+/*When in different DB*/
+SELECT *
+FROM SQLTutorial.dbo.EmployeeDemographics
+WHERE AGE < 25
+
+SELECT * FROM EmployeeSalary
+WHERE SALARY >40000 AND EmployeeID != 1001
+
+SELECT * FROM EmployeeDemographics
+WHERE LastName LIKE 'L%' 
+
+SELECT * FROM EmployeeDemographics
+WHERE LastName LIKE 'G%AL%' 
+
+/*IN IS LIKE A MULTIPLE EQUAL STATEMENTS*/
+SELECT * FROM EmployeeDemographics
+WHERE FirstName IN ('KARTHIK', 'GRETTA')
+
+/*GROUP BY AND ORDER BY*/
+SELECT GENDER, COUNT(GENDER) AS Gender_Count
+FROM EmployeeDemographics
+GROUP BY GENDER
+ORDER BY Gender_Count DESC
+
+SELECT * FROM EmployeeDemographics
+ORDER BY EmployeeID, FirstName
+
+SELECT * FROM EmployeeDemographics
+ORDER BY 2 ASC, 4 DESC
